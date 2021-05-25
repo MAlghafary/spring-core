@@ -6,14 +6,15 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfiguration {
 
-    // the name of the bean will be based on the method name
-    // you can change this by using @Bean(name="sq")
-    @Bean
-    public SequenceGenerator sequenceGenerator(){
-        SequenceGenerator sequenceGenerator = new SequenceGenerator();
-        sequenceGenerator.setPrefix("30");
-        sequenceGenerator.setSuffix("A");
-        sequenceGenerator.setInitial(100);
-        return sequenceGenerator;
-    }
+      @Bean
+      public Product aaa(){
+          Battery p1 = new Battery("AAA",2.5,true);
+          return p1;
+      }
+
+      @Bean
+      public Product cdrw(){
+          Disc p2 = new Disc("CD-RW",1.5,200);
+          return p2;
+      }
 }
