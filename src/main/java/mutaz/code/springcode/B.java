@@ -1,13 +1,10 @@
 package mutaz.code.springcode;
 
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Service;
+public class B {
 
-@Service
-@Primary
-public class B implements A{
-    @Override
-    public void print(String text) {
-        System.out.println(text + " From B");
+    private A a;
+
+    public B(A a) {
+        this.a = a;
     }
 }
