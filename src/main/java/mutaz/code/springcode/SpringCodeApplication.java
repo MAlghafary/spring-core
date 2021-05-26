@@ -11,9 +11,8 @@ public class SpringCodeApplication {
     public static void main(String[] args) {
 
         ApplicationContext context = SpringApplication.run(SpringCodeApplication.class, args);
-        Arrays.stream(context.getBeanDefinitionNames()).forEach(s -> {
-            System.out.println(s);
-        });
+        BookService bookService = context.getBean(BookService.class);
+        System.out.println(bookService.toString());
     }
 
 }
