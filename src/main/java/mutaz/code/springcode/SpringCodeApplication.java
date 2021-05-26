@@ -13,6 +13,10 @@ public class SpringCodeApplication {
         ApplicationContext context = SpringApplication.run(SpringCodeApplication.class, args);
         BookService bookService = context.getBean(BookService.class);
         System.out.println(bookService.toString());
+        System.out.println(bookService.getArray());
+        System.out.println(bookService.getList());
+        System.out.println(bookService.getMap());
+        System.out.println(bookService.getOneType());
     }
 
 }
