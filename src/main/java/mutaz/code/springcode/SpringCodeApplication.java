@@ -10,14 +10,23 @@ import java.util.Arrays;
 @SpringBootApplication
 public class SpringCodeApplication {
     public static void main(String[] args) {
-
-        // If you have multiple config classes, and you need to only autowire ( no @Bean )
-        // then you can do something like this
-        //new AnnotationConfigApplicationContext(AConfiguration.class,BConfiguration.class);
-
-        // if you need to use @Bean for more control, you need to use @import , see BConfiguration
         ApplicationContext context = SpringApplication.run(SpringCodeApplication.class, args);
-        B b = context.getBean(B.class);
+        Product a = context.getBean("A", Product.class);
+        Product b = context.getBean("B", Product.class);
+        Product c = context.getBean("C", Product.class);
+        ShoppingCart cart1 = context.getBean(ShoppingCart.class);
+        cart1.addItem(a);
+        cart1.addItem(b);
+        // The default bean scope in spring is singleton , so the same
+        // shopping cart will be returned here
+        // to change this to another scope , you can use
+        // @Scope()
+        // Scopes values includes : singleton , prototype,request,session
+        ShoppingCart cart2 = context.getBean(ShoppingCart.class);
+        cart2.addItem(c);
+
+        System.out.println(cart1.getItems());
+        System.out.println(cart2.getItems());
     }
 
 }
