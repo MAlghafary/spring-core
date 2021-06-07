@@ -5,16 +5,15 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-@Component
 public class BeanB {
 
-    @PostConstruct
-    public void init(){
-        System.out.println("BeanB , .. init");
+    public BeanB() {
+        throw new RuntimeException();
     }
 
-    @PreDestroy
+    public void init(){
+    }
+
     public void destroy(){
-        System.out.println("BeanB, .. destroy");
     }
 }
