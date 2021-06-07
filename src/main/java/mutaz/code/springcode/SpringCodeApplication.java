@@ -14,18 +14,13 @@ import java.util.Arrays;
 public class SpringCodeApplication {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(SpringCodeApplication.class, args);
-        Printer printer = context.getBean(Printer.class);
-        printer.print();
+        BeanA beanA = context.getBean(BeanA.class);
+        BeanB beanB = context.getBean(BeanB.class);
+
     }
 
-    @Bean
-    // it is important to keep the name as messageSource , otherwise
-    // this will not work 
-    public MessageSource messageSource(){
-        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasename("classpath:ui");
-        messageSource.setCacheSeconds(1);
-        return messageSource;
+    @Bean(initMethod = "init",destroyMethod = "destroy")
+    public BeanA beanA(){
+        return new BeanA();
     }
-
 }
