@@ -7,8 +7,8 @@ import javax.annotation.PreDestroy;
 
 public class BeanB {
 
-    public BeanB() {
-        throw new RuntimeException();
+    public BeanB(){
+        System.out.println("Creating BeanB");
     }
 
     public void init(){

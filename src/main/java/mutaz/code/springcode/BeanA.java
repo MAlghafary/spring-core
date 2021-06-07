@@ -3,7 +3,7 @@ package mutaz.code.springcode;
 public class BeanA {
 
     public BeanA() {
-       // throw new RuntimeException();
+        System.out.println("Creating beanA");
     }
 
     public void init(){
