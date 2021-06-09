@@ -19,8 +19,6 @@ public class SpringCodeApplication {
     }
 
     @Bean()
-    // this will cause beanB to be initialized before beanA
-    @DependsOn("beanB")
     public BeanA beanA(){
         return new BeanA();
     }
